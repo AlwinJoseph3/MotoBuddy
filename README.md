@@ -72,7 +72,7 @@
 ---
 ## Contacts
 
-[Figma](your-portfolio-link.com) · [LinkedIn](https://www.linkedin.com/in/alwin-joseph-807420221/) 
+[Figma](https://www.figma.com/design/bMz4RoEI4VaAYcWftrZ6WT/Motobuddy?m=auto&t=XuM5LPbTYWMnedCE-6) · [LinkedIn](https://www.linkedin.com/in/alwin-joseph-807420221/) 
 
 ---
 <p align="center">Made with ❤️ for the Indian Riding Community</p>
