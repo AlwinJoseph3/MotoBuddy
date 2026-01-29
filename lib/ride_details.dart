@@ -156,15 +156,13 @@ class RideDetails extends StatelessWidget {
       children: [
         _buildItineraryRow("Day", "Route", "Highlights", isHeader: true),
         const Divider(color: Colors.grey),
-        ...ride.itinerary
-            .map(
-              (item) => _buildItineraryRow(
-                item['day']!,
-                item['route']!,
-                item['highlights']!,
-              ),
-            )
-            .toList(),
+        ...ride.itinerary.map(
+          (item) => _buildItineraryRow(
+            item['day']!,
+            item['route']!,
+            item['highlights']!,
+          ),
+        ),
       ],
     );
   }
