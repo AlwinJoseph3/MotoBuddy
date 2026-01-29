@@ -6,7 +6,6 @@ class AdvicePost {
   AdvicePost({required this.title, required this.tips, required this.author});
 }
 
-// Data exactly as shown in your Figma/Screenshot
 final List<AdvicePost> expertAdviceList = [
   AdvicePost(
     title: "Essential Tips for Manali-Leh",

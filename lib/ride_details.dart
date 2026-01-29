@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'package:motobuddy_v1/models/ride_model.dart';
 
 class RideDetails extends StatelessWidget {
   final Ride ride;
@@ -13,20 +13,22 @@ class RideDetails extends StatelessWidget {
         backgroundColor: const Color(0xFF121212),
         body: Column(
           children: [
-            // 1. Header with Back Button and Difficulty Tag
+            // Header Image Stack
             Stack(
               children: [
                 Image.asset(
                   ride.imagePath,
-                  height: 200,
+                  height:
+                      250, // Slightly increased height for better visual impact
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
+                // Back Button
                 Positioned(
                   top: 50,
                   left: 16,
                   child: CircleAvatar(
-                    backgroundColor: Colors.black26,
+                    backgroundColor: Colors.black45,
                     child: IconButton(
                       icon: const Icon(
                         Icons.arrow_back_ios_new,
@@ -37,6 +39,7 @@ class RideDetails extends StatelessWidget {
                     ),
                   ),
                 ),
+                // Difficulty Tag
                 Positioned(
                   top: 60,
                   right: 20,
@@ -61,19 +64,27 @@ class RideDetails extends StatelessWidget {
                 ),
               ],
             ),
+
+            // Title Section
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                ride.title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  ride.title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
+
+            // Custom TabBar
             const TabBar(
-              indicatorColor: Color(0xFFF15A24),
+              indicatorColor: Color(0xFFFF5722), // Matching Moto Orange
+              indicatorWeight: 3,
               labelColor: Colors.white,
               unselectedLabelColor: Colors.grey,
               tabs: [
@@ -81,18 +92,22 @@ class RideDetails extends StatelessWidget {
                 Tab(text: "Itinerary"),
               ],
             ),
+
             Expanded(
               child: TabBarView(
                 children: [_buildOverviewTab(), _buildItineraryTab()],
               ),
             ),
-            // Join Button
+
+            // Bottom "Join Ride" Action
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // Logic for joining ride
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFF5722),
                     shape: RoundedRectangleBorder(
@@ -123,28 +138,49 @@ class RideDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Dynamic Map Placeholder
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              "assets/Goa.jpg",
-              height: 150,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            child: Container(
+              color: const Color(0xFF1E1E1E),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    ride.imagePath, // Using ride image as a placeholder for now
+                    height: 150,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    opacity: const AlwaysStoppedAnimation(.3),
+                  ),
+                  const Positioned.fill(
+                    child: Center(
+                      child: Icon(
+                        Icons.map_outlined,
+                        color: Colors.orange,
+                        size: 40,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 20),
+
+          // Stats Row
           Wrap(
-            spacing: 12, // Gap between capsules
-            runSpacing: 12, // Gap if they wrap to a second line
+            spacing: 12,
+            runSpacing: 12,
             children: [
               _buildStatCapsule(Icons.map_outlined, ride.distance),
               _buildStatCapsule(Icons.access_time, ride.time),
               _buildStatCapsule(Icons.groups_outlined, "${ride.riders}"),
             ],
           ),
-          _buildRideDetailsSection("Ride Details", ride.details),
+
+          _buildRideDetailsSection("Description", ride.details),
           _buildChecklistSection("Documents Required", ride.documents),
-          _buildChecklistSection("Medical Gear", ride.medical),
+          _buildChecklistSection("Medical Essentials", ride.medical),
         ],
       ),
     );
@@ -170,23 +206,21 @@ class RideDetails extends StatelessWidget {
   Widget _buildStatCapsule(IconData icon, String label) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF1E1E1E), // Dark grey capsule background
+        color: const Color(0xFF1E1E1E),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Orange Circle Icon
           Container(
             padding: const EdgeInsets.all(10),
             decoration: const BoxDecoration(
-              color: Color(0xFFFF5722), // Moto Orange
+              color: Color(0xFFFF5722),
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: Colors.white, size: 20),
           ),
           const SizedBox(width: 10),
-          // Label Text
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: Text(
@@ -203,7 +237,6 @@ class RideDetails extends StatelessWidget {
     );
   }
 
-  // Reusable Component Helpers
   Widget _buildChecklistSection(String title, List<String> items) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
