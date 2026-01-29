@@ -1,3 +1,6 @@
+# ----- UNDER DEVELOPMENT -----
+
+
 # 🏍️ MotoBuddy: The Expedition Companion
 > A community-driven platform for high-altitude motorcycle touring and group coordination.
 
