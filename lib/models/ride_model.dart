@@ -15,6 +15,7 @@ class Ride {
   final Color difficultyColor;
   final List<String> documents;
   final List<String> medical;
+  final String whatsapplink;
   final List<Map<String, String>> itinerary;
 
   Ride({
@@ -32,6 +33,7 @@ class Ride {
     required this.difficultyColor,
     required this.documents,
     required this.medical,
+    required this.whatsapplink,
     required this.itinerary,
   });
 }
@@ -58,6 +60,7 @@ final List<Ride> upcomingRides = [
       "Passport Photos",
     ],
     medical: ["Potable Oxygen Cylinder", "Hydration Pack", "Medicines"],
+    whatsapplink: "link here",
     itinerary: [
       {
         "day": "1",
@@ -80,6 +83,7 @@ final List<Ride> upcomingRides = [
     distance: "108 km",
     time: "3hr 27m",
     difficulty: "BEGINNER",
+    whatsapplink: "link here",
     imagePath: "assets/Goa.jpg",
     difficultyColor: const Color(0xFF2E7D32),
     documents: ["Inner Line Permit", "Driving Licence", "RC", "Insurance"],
@@ -102,6 +106,7 @@ final List<Ride> upcomingRides = [
     distance: "450 km",
     time: "18hr 30m",
     difficulty: "ADVANCED",
+    whatsapplink: "link here",
     imagePath: "assets/Spiti.jpg",
     difficultyColor: const Color(0xFFB71C1C),
     documents: ["Inner Line Permit", "Driving Licence", "RC"],
@@ -133,6 +138,7 @@ final List<Ride> upcomingRides = [
         "A beautiful ride along the East Coast Road (ECR). Perfect for a weekend getaway with French vibes and sea breezes.",
     date: "Mar 5 - Mar 6, 2026",
     bike: "RE Meteor 350",
+    whatsapplink: "link here",
     riders: 12,
     distance: "155 km",
     time: "3hr 15m",
@@ -164,6 +170,7 @@ final List<Ride> upcomingRides = [
     date: "July 20 - July 28, 2026",
     bike: "RE Himalayan 450",
     riders: 5,
+    whatsapplink: "link here",
     distance: "480 km",
     time: "22hr 00m",
     difficulty: "ADVANCED",
@@ -188,6 +195,7 @@ final List<Ride> upcomingRides = [
     riders: 10,
     distance: "320 km",
     time: "6hr 45m",
+    whatsapplink: "link here",
     difficulty: "INTERMEDIATE",
     imagePath: "assets/Rann.jpg",
     difficultyColor: const Color(0xFFF9A825),
@@ -218,6 +226,7 @@ final List<Ride> upcomingRides = [
     riders: 15,
     distance: "210 km",
     time: "5hr 30m",
+    whatsapplink: "link here",
     difficulty: "INTERMEDIATE",
     imagePath: "assets/ghats.jpg",
     difficultyColor: const Color(0xFFF9A825),
@@ -248,6 +257,7 @@ final List<Ride> upcomingRides = [
     riders: 8,
     distance: "180 km",
     time: "4hr 50m",
+    whatsapplink: "link here",
     difficulty: "INTERMEDIATE",
     imagePath: "assets/munnar.jpg",
     difficultyColor: const Color(0xFFF9A825),
@@ -278,6 +288,7 @@ final List<Ride> upcomingRides = [
     riders: 7,
     distance: "170 km",
     time: "4hr 10m",
+    whatsapplink: "link here",
     difficulty: "BEGINNER",
     imagePath: "assets/Varkala.jpg",
     difficultyColor: const Color(0xFF2E7D32),
@@ -307,6 +318,7 @@ final List<Ride> upcomingRides = [
     bike: "RE Himalayan 411",
     riders: 4,
     distance: "340 km",
+    whatsapplink: "link here",
     time: "15hr 45m",
     difficulty: "ADVANCED",
     imagePath: "assets/sach.jpg",
@@ -337,6 +349,7 @@ final List<Ride> upcomingRides = [
     bike: "Jawa Perak",
     riders: 9,
     distance: "190 km",
+    whatsapplink: "link here",
     time: "4hr 00m",
     difficulty: "BEGINNER",
     imagePath: "assets/Dhanushkodi.jpg",
@@ -363,6 +376,7 @@ final List<Ride> upcomingRides = [
     bike: "RE Scram 411",
     riders: 6,
     distance: "510 km",
+    whatsapplink: "link here",
     time: "16hr 30m",
     difficulty: "ADVANCED",
     imagePath: "assets/Tawang.jpg",

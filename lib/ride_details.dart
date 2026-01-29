@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motobuddy_v1/bookride.dart';
 import 'package:motobuddy_v1/models/ride_model.dart';
 
 class RideDetails extends StatelessWidget {
@@ -13,17 +14,14 @@ class RideDetails extends StatelessWidget {
         backgroundColor: const Color(0xFF121212),
         body: Column(
           children: [
-            // Header Image Stack
             Stack(
               children: [
                 Image.asset(
                   ride.imagePath,
-                  height:
-                      250, // Slightly increased height for better visual impact
+                  height: 250,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
-                // Back Button
                 Positioned(
                   top: 50,
                   left: 16,
@@ -39,7 +37,6 @@ class RideDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Difficulty Tag
                 Positioned(
                   top: 60,
                   right: 20,
@@ -65,7 +62,6 @@ class RideDetails extends StatelessWidget {
               ],
             ),
 
-            // Title Section
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: Align(
@@ -81,9 +77,8 @@ class RideDetails extends StatelessWidget {
               ),
             ),
 
-            // Custom TabBar
             const TabBar(
-              indicatorColor: Color(0xFFFF5722), // Matching Moto Orange
+              indicatorColor: Color(0xFFFF5722),
               indicatorWeight: 3,
               labelColor: Colors.white,
               unselectedLabelColor: Colors.grey,
@@ -99,14 +94,18 @@ class RideDetails extends StatelessWidget {
               ),
             ),
 
-            // Bottom "Join Ride" Action
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Logic for joining ride
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookingDetails(ride: ride),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFF5722),
@@ -138,7 +137,6 @@ class RideDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Dynamic Map Placeholder
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
@@ -146,7 +144,7 @@ class RideDetails extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.asset(
-                    ride.imagePath, // Using ride image as a placeholder for now
+                    ride.imagePath,
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -167,7 +165,6 @@ class RideDetails extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          // Stats Row
           Wrap(
             spacing: 12,
             runSpacing: 12,

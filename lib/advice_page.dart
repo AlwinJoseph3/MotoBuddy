@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'models/advice_model.dart';
+import 'add_advice.dart';
 
 class AdvicePage extends StatelessWidget {
   const AdvicePage({super.key});
@@ -11,7 +12,7 @@ class AdvicePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _buildHeader(),
+            _buildHeader(context),
             _buildSearchBar(),
             const SizedBox(height: 10),
 
@@ -31,7 +32,7 @@ class AdvicePage extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
@@ -56,7 +57,12 @@ class AdvicePage extends StatelessWidget {
           ),
           IconButton(
             icon: const Icon(Icons.add, color: Color(0xFFFF5722), size: 30),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddAdvicePage()),
+              );
+            },
           ),
         ],
       ),

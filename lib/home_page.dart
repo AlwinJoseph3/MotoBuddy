@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ride_details.dart';
 import 'models/ride_model.dart';
+import 'profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,15 +47,19 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.add, color: Colors.orange),
-            onPressed: () {},
-          ),
-          const Padding(
-            padding: EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              radius: 18,
-              backgroundImage: AssetImage('assets/profile.jpg'),
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                );
+              },
+              child: const CircleAvatar(
+                radius: 18,
+                backgroundImage: AssetImage('assets/profile.jpg'),
+              ),
             ),
           ),
         ],
