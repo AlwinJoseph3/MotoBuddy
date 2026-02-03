@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'ride_details.dart';
 import 'models/ride_model.dart';
 import 'profile.dart';
+import 'widgets/animated_like.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -197,24 +198,14 @@ class _HomePageState extends State<HomePage> {
               ),
               Positioned(
                 top: 15,
-                left: 15,
+                right: 15,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: ride.difficultyColor,
-                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black.withOpacity(0.3), // Glassy background
+                    shape: BoxShape.circle,
                   ),
-                  child: Text(
-                    ride.difficulty,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: const AnimatedLikeButton(),
                 ),
               ),
             ],
