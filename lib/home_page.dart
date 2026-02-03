@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.3), // Glassy background
+                    color: const Color.fromRGBO(0, 0, 0, 0.3),
                     shape: BoxShape.circle,
                   ),
                   child: const AnimatedLikeButton(),
